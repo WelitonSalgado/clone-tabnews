@@ -1,6 +1,6 @@
 function Home() {
     return (
-        <h1>Hello word!</h1>
+        <h1>Luciana, eu te amo!!!</h1>
     )
 }
 
