@@ -9,30 +9,26 @@ describe("POST /api/v1/migrations", () => {
   describe("Anonymous user", () => {
     describe("Running pending migrations", () => {
       test("For the firs time", async () => {
-        const response1Body = await fetch(
+        const responseBody = await fetch(
           "http://localhost:3000/api/v1/migrations",
-          {
-            method: "POST",
-          },
+          { method: "POST" },
         );
-        expect(response1Body.status).toBe(201);
+        expect(responseBody.status).toBe(201);
 
-        const response1BodyBody = await response1Body.json();
-        expect(Array.isArray(response1BodyBody)).toBe(true);
-        expect(response1BodyBody.length).toBeGreaterThan(0);
+        const responseBodyBody = await responseBody.json();
+        expect(Array.isArray(responseBodyBody)).toBe(true);
+        expect(responseBodyBody.length).toBeGreaterThan(0);
       });
       test("For the second time", async () => {
-        const response2Body = await fetch(
+        const responseBody = await fetch(
           "http://localhost:3000/api/v1/migrations",
-          {
-            method: "POST",
-          },
+          { method: "POST" },
         );
-        expect(response2Body.status).toBe(200);
+        expect(responseBody.status).toBe(200);
 
-        const response2BodyBody = await response2Body.json();
-        expect(Array.isArray(response2BodyBody)).toBe(true);
-        expect(response2BodyBody.length).toBe(0);
+        const responseBodyBody = await responseBody.json();
+        expect(Array.isArray(responseBodyBody)).toBe(true);
+        expect(responseBodyBody.length).toBe(0);
       });
     });
   });
